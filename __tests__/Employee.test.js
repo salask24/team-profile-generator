@@ -29,4 +29,3 @@ test('check for email', () => {
 });
 
 
-//Methods
