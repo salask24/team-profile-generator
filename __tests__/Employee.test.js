@@ -28,4 +28,9 @@ test('check for email', () => {
 
 });
 
+test('check for role', () => {
+    const role = new Employee ('kim', 24, 'e@email.com', 'role')
 
+    expect(role.role).toBe('role')
+
+});
