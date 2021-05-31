@@ -202,11 +202,11 @@ const startApp = () => {
     //this is the function that will generate HTML page file using the file system
     const writeFile = data => {
         fs.writeFile('./dist/index.html', data, err => {
-            // if there is an error 
+            // if there is an error it will console log the error
             if (err) {
                 console.log(err);
                 return;
-                // when the profile has been created 
+                // if no error
             } else {
                 console.log("Your team profile has been successfully created! Please check out the index.html")
             }
