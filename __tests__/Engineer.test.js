@@ -1,24 +1,23 @@
 const Engineer = require('../lib/Engineer');
 
-test('Creates an Engineer object', () => {
-    const engineer = new Engineer('kim', '24', 'e@email.com', 'GithubUsername')
+test('creates an Engineer object that inherits from Employee', () => {
+    const engineer = new Engineer('Kimberly Salas', 'salask.0104@gmail.com', 24, 'salask24');
 
-    expect(engineer.name).toEqual(expect.any(String));
-    expect(engineer.id).toEqual(expect.any(String));
-    expect(engineer.email).toEqual(expect.stringContaining('@'));
-    expect(engineer.githubUsername).toEqual(expect.any(String));
-});
+    // if engineer has these attrs, it's inheriting from Employee.
+    expect(engineer.name).toBe('Kimberly Salas');
+    expect(engineer.email).toBe('salask.0104@gmail.com');
+    expect(engineer.id).toBe(24);
 
-test("Gets Engineer's GitHub username", () => {
-    const engineer = new Engineer('kim', '24', 'e@email.com', 'githubUsername')
+    // engineer-specific attr
+    expect(engineer.github).toBe('salask24');
+})
 
-    expect(engineer.githubUsername()).toEqual(expect.any(String));
-});
+test('getRole() returns the role', () => {
+    const engineer = new Engineer('Kimberly Salas', 'salask.0104@gmail.com', 'blah');
+    expect(engineer.getRole()).toBe('Engineer');
+})
 
-test("Gets Engineer's role", () => {
-    const engineer = new Engineer('kim', '24', 'e@email.com', 'githubUsername')
-
-    expect(engineer.getRole()).toEqual(expect.stringContaining('Engineer'));
-
-    console.log(engineer);
-});
+test('getGithub() returns the github username', () => {
+    const engineer = new Engineer('Kimberly Salas', 'salask.0104@gmail.com', 'blah', 'salask24');
+    expect(engineer.getGithub()).toBe('salask24');
+})
