@@ -13,11 +13,11 @@ test('creates an Engineer object that inherits from Employee', () => {
 })
 
 test('getRole() returns the role', () => {
-    const engineer = new Engineer('Kimberly Salas', 'salask.0104@gmail.com', 'blah');
+    const engineer = new Engineer('Kimberly Salas', 'salask.0104@gmail.com', 'ABC');
     expect(engineer.getRole()).toBe('Engineer');
 })
 
 test('getGithub() returns the github username', () => {
-    const engineer = new Engineer('Kimberly Salas', 'salask.0104@gmail.com', 'blah', 'salask24');
+    const engineer = new Engineer('Kimberly Salas', 'salask.0104@gmail.com', 'ABC', 'salask24');
     expect(engineer.getGithub()).toBe('salask24');
 })
