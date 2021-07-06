@@ -17,13 +17,14 @@ const teamMembers = [];
 
 //start the application
 const startApp = () => {
-
+console.log('running')
     //questions for adding manager information
     const addManager = () => {
         return inquirer.prompt([
             {
                 type: 'input',
                 name: 'manager',
+                message: 'Please enter your team managers name.',
                 validate: answerInput => {
                     if (answerInput) {
                         return true;
@@ -36,7 +37,7 @@ const startApp = () => {
             {
                 type: 'input',
                 name: 'id',
-                message: "Please enter the manager's ID.",
+                message: "Please enter the manager's ID:",
                 validate: nameInput => {
                     if (isNaN(nameInput)) {
                         console.log("Please enter the manager's ID!")
@@ -226,3 +227,5 @@ const startApp = () => {
         });
 
 }
+
+startApp()

@@ -10,13 +10,13 @@ test('Creates an Engineer object', () => {
 });
 
 test("Gets Engineer's GitHub username", () => {
-    const engineer = new Engineer('kim', '24', 'e@email.com', 'GithubUsername')
+    const engineer = new Engineer('kim', '24', 'e@email.com', 'githubUsername')
 
     expect(engineer.githubUsername()).toEqual(expect.any(String));
 });
 
 test("Gets Engineer's role", () => {
-    const engineer = new Engineer('kim', '24', 'e@email.com', 'GithubUsername')
+    const engineer = new Engineer('kim', '24', 'e@email.com', 'githubUsername')
 
     expect(engineer.getRole()).toEqual(expect.stringContaining('Engineer'));
 
