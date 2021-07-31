@@ -27,4 +27,4 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 # Demo link
 
-https://drive.google.com/file/d/1UDXry2Opd9kWbnYOQoQu6A08tz9qrH4B/view
+<iframe src="https://drive.google.com/file/d/1UDXry2Opd9kWbnYOQoQu6A08tz9qrH4B/preview" width="640" height="480"></iframe>
