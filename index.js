@@ -1,12 +1,8 @@
 // add all the const
 const fs = require('fs');
-
 const inquirer = require('inquirer');
-
 const Manager = require('./lib/Manager');
-
 const Engineer = require('./lib/Engineer');
-
 const Intern = require('./lib/Intern');
 
 const generatePage = require('./src/page-template');
@@ -23,13 +19,13 @@ console.log('running')
         return inquirer.prompt([
             {
                 type: 'input',
-                name: 'manager',
-                message: 'Please enter your team managers name.',
+                name: 'name',
+                message: 'Please enter your managers name:',
                 validate: answerInput => {
                     if (answerInput) {
                         return true;
                     } else {
-                        console.log('Please enter your team managers name.');
+                        console.log('Please enter your managers name!');
                         return false;
                     }
                 }
@@ -50,7 +46,7 @@ console.log('running')
             {
                 type: 'input',
                 name: 'email',
-                message: "Please enter the manager's email.",
+                message: "Please enter the manager's email:",
                 validate: answerInput => {
                     if (answerInput) {
                         return true;
@@ -86,9 +82,9 @@ console.log('running')
 
     const addEmployee = () => {
         console.log(`
-        =================
+        ============================
         Adding employees to the team
-        =================
+        ============================
         `);
 
         return inquirer.prompt([
@@ -114,7 +110,7 @@ console.log('running')
             {
                 type: 'input',
                 name: 'id',
-                message: "Please enter the employee's ID.",
+                message: "Please enter the employee's ID:",
                 validate: nameInput => {
                     if (isNaN(nameInput)) {
                         console.log("Please enter the employee's ID!")
@@ -127,7 +123,7 @@ console.log('running')
             {
                 type: 'input',
                 name: 'email',
-                message: "Please enter the employee's email.",
+                message: "Please enter the employee's email:",
                 validate: email => {
                     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
                     if (valid) {
@@ -141,7 +137,7 @@ console.log('running')
             {
                 type: 'input',
                 name: 'github',
-                message: "Please enter the employee's github username.",
+                message: "Please enter the employee's github username:",
                 when: (input) => input.role === "Engineer",
                 validate: nameInput => {
                     if (nameInput) {
@@ -154,7 +150,7 @@ console.log('running')
             {
                 type: 'input',
                 name: 'school',
-                message: "Please enter the intern's school",
+                message: "Please enter the intern's school:",
                 when: (input) => input.role === "Intern",
                 validate: nameInput => {
                     if (nameInput) {
@@ -178,7 +174,7 @@ console.log('running')
                 let employee;
 
                 if (role === "Engineer") {
-                    employee = new Engineer(name, id, email, github);
+                    employee = new Engineer(name, id, email, role, github);
 
                     console.log(employee);
 
@@ -217,7 +213,7 @@ console.log('running')
     addManager()
         .then(addEmployee)
         .then(teamMembers => {
-            return generateHTML(teamMembers);
+            return generatePage(teamMembers);
         })
         .then(pageHTML => {
             return writeFile(pageHTML);
@@ -228,4 +224,4 @@ console.log('running')
 
 }
 
-startApp()
+startApp();
